@@ -1,7 +1,7 @@
 import React from 'react';
 import {  Text, View ,ScrollView} from "react-native";
 import Modal from "react-native-modal";
-
+import PropTypes from 'prop-types';
 const CustModal = props=>{
   return (
     // <View style={{ flex: 1 ,borderWidth:5,borderColor:'green'}}>
@@ -23,6 +23,10 @@ const CustModal = props=>{
       </Modal>
       //{" "}
   );
-};
+}
+ CustModal.propTypes={
+	 isVisible:PropTypes.bool,
+	 toggleModal:PropTypes.func,
+ }
 
 export default CustModal;

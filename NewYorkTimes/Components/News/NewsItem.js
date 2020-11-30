@@ -12,7 +12,7 @@ import {
 import Colors from "../../constants/Colors";
 
 import Card from "../UI/Card";
-
+import PropTypes from 'prop-types';
 const NewsItem = (props) => {
   let TouchableCmp = TouchableOpacity;
 
@@ -100,5 +100,9 @@ const styles = StyleSheet.create({
 	},
 	  centered: { flex: 1, justifyContent: "center", alignItems: "center" },
 });
-
+NewsItem.propTypes={
+	image:PropTypes.string,
+	title:PropTypes.string,
+	description:PropTypes.string,
+}
 export default NewsItem;

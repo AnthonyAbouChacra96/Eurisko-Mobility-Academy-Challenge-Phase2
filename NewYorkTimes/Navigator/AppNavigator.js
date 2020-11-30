@@ -7,9 +7,9 @@ const defaultNavOptions = {
   headerStyle: {
     backgroundColor: Platform.OS === "android" ? Colors.primary : "",
   },
-  // headerTitleStyle: {
-  //   fontFamily: "open-sans-bold",
-  // },
+  headerTitleStyle: {
+    fontFamily: "englisht",
+  },
   // headerBackTitleStyle: {
   //   fontFamily: "open-sans",
   // },
