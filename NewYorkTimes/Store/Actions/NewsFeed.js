@@ -28,7 +28,8 @@ export const fetchNews = (search, page) => {
               x.headline.main,
               x.multimedia.length > 0 ? x.multimedia[0].url : null,
               x.snippet,
-              x.lead_paragraph
+							x.lead_paragraph,
+							x.web_url
             )
         );
         newArray = newArray.concat(array);

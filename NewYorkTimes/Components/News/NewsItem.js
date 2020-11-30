@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   View,
   Text,
@@ -8,6 +9,7 @@ import {
   TouchableNativeFeedback,
   Platform,
 } from "react-native";
+import Colors from "../../constants/Colors";
 
 import Card from "../UI/Card";
 
@@ -19,12 +21,23 @@ const NewsItem = (props) => {
   }
 
   return (
-    <Card style={styles.product}>
+    <Card style={styles.news}>
       <View style={styles.touchable}>
-        <TouchableCmp onPress={props.onSelect} useForeground>
+        <TouchableCmp
+          onPress={() => {
+            props.onSelect(props.id);
+          }}
+          useForeground
+        >
           <View>
             <View style={styles.imageContainer}>
-              <Image style={styles.image} source={{ uri: props.image }} />
+              {props.image ? (
+                <Image style={styles.image} source={{ uri: props.image }} />
+              ) : (
+                <View style={styles.center}>
+                  <Text>No Image Found </Text>
+                </View>
+              )}
             </View>
             <View style={styles.details}>
               <Text style={styles.title}>{props.title}</Text>
@@ -39,7 +52,7 @@ const NewsItem = (props) => {
 };
 
 const styles = StyleSheet.create({
-  product: {
+  news: {
     height: 300,
     margin: 10,
   },
@@ -60,27 +73,32 @@ const styles = StyleSheet.create({
   },
   details: {
     alignItems: "center",
-    height: "17%",
+    // height: "17%",
     height: "40%",
-    padding: 10,
+    padding: 2,
   },
   title: {
     // fontFamily: "open-sans-bold",
-    fontSize: 18,
-    marginVertical: 2,
-  },
-  price: {
-    fontFamily: "open-sans",
-    fontSize: 14,
-    color: "#888",
-  },
+    fontSize: 15,
+		marginVertical: 2,
+		color:Colors.primary
+	},
+	description:{
+		marginHorizontal:2
+	},
+  // price: {
+  //   fontFamily: "open-sans",
+  //   fontSize: 14,
+  //   color: "#888",
+  // },
   actions: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     height: "23%",
     paddingHorizontal: 20,
-  },
+	},
+	  centered: { flex: 1, justifyContent: "center", alignItems: "center" },
 });
 
 export default NewsItem;
